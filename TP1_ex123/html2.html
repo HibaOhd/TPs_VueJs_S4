@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <title>Manipulation de vue</title>
+    <script src="https://unpkg.com/vue@3.0.0"></script>
+    <style>
+        .warn{color: red;}
+        div,button,input{margin:5px;}
+    </style>
+    </head>
+    <body>
+    
+    <div id="monapp">
+        <button @click="changeButtonText">{{titre}}</button>
+        <div>
+            <button @click="Increment">++</button>
+            <span> {{compteur}} </span>
+            <button @click="Decrement">--</button>
+        </div>
+        <input type="text"  @input="checkSpace">
+        <p v-if="warning" class="warn">rappel: le texte ne doit pas contenir un espace </p>
+        <p v-else> </p>
+    </div>
+    
+    
+    <script>
+        const appli = {
+            data () {
+                    return {
+                        titre:"Cliquez moi!",
+                        compteur:0,
+                        warning: false 
+                    };
+                },
+            methods: {
+                changeButtonText(){
+                    this.titre = "Cliqué!"
+                },
+                Increment(){
+                    this.compteur++;
+                },
+                Decrement(){
+                    this.compteur--;
+                },
+                checkSpace(event){
+                    const texte = event.target.value ; 
+                    this.warning = texte.includes(" ");
+                }
+            }
+        };
+        
+    Vue.createApp(appli).mount("#monapp");
+    </script>
+    
+    
+    </body></html>

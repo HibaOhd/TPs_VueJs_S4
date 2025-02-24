@@ -1,0 +1,51 @@
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <title>Manipulation de vue</title>
+    <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <style>
+        .Red{color:red;}
+        .Blue{color:blue;}
+        .Default{color:black;}
+    </style>
+    <body>
+    
+    <div id="monapp">
+        <ul>
+            <li>
+                Couleur de la police : <br>
+                Rouge <input type="radio" name="colorC" value="Red" v-model="ColorSelected"> <br>
+                Bleu <input type="radio" name="colorC" value="Blue" v-model="ColorSelected"> <br>
+            </li>
+            <li>
+                Afficher/cacher le paragraphe? 
+                <input type="checkbox" @input="DispHide">
+            </li>
+        </ul>
+        
+        <p v-if="disp" :class="ColorSelected">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam pariatur ‹ mollitia et, inventore delectus. Doloribus laudantium maiores at necessiti ipsum distinctio?</p>
+        <p v-else></p>
+    </div>
+    
+    
+    <script>
+        const appli = {
+            data () {
+                    return {
+                        disp : true,
+                        ColorSelected : 'Default'
+                    }
+                },
+            methods:{
+                DispHide(event){
+                    const bol = event.target.checked; 
+                    this.disp = !bol ; 
+                }
+            }
+        };
+        
+    Vue.createApp(appli).mount("#monapp");
+    </script>
+    
+    
+    </body></html>
