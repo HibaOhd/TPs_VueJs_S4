@@ -1,0 +1,16 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "Premier post",
+        "body": "Ceci est un exemple de post.",
+        "tags": ["vue", "javascript"]
+      },
+      {
+        "id": 2,
+        "title": "Deuxième post",
+        "body": "Un autre exemple de post de blog.",
+        "tags": ["frontend", "vue"]
+      }
+    ]
+}
